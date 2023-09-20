@@ -274,13 +274,13 @@ const animatedLeft = document.querySelectorAll(".slide-left");
 
 animatedLeft.forEach(element => {
   if (elementIsVisibleInViewport(element) === true) {
-    console.dir(element);
+    //console.dir(element);
     element.style.animation = "slideLeft 1s ease-in-out forwards"
   }
 });
 animatedRight.forEach(element => {
   if (elementIsVisibleInViewport(element) === true) {
-    console.dir(element);
+    //console.dir(element);
     element.style.animation = "slideRight 1s ease-in-out forwards"
   }
 });
@@ -288,13 +288,13 @@ animatedRight.forEach(element => {
 document.addEventListener("scroll", (event) => {
   animatedLeft.forEach(element => {
     if (elementIsVisibleInViewport(element) === true) {
-      console.dir(element);
+      //console.dir(element);
       element.style.animation = "slideLeft 1s ease-in-out forwards"
     }
   });
   animatedRight.forEach(element => {
     if (elementIsVisibleInViewport(element) === true) {
-      console.dir(element);
+      //console.dir(element);
       element.style.animation = "slideRight 1s ease-in-out forwards"
     }
   });
@@ -356,3 +356,112 @@ burger.addEventListener("click", () => {
     scrollToggle = 1;
   }
 })
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0); // Scrolls the page to the top
+}
+
+/* ========== Contact me form (EmailJS) ========== */
+
+document.addEventListener("DOMContentLoaded", function(){
+  console.log("loaded");
+
+  function callModal(){
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    // Get the main container and the body
+    var body = document.getElementsByTagName('body');
+    var container = document.getElementById('MainContainer');
+    // Get the open button
+    //var btnOpen = document.getElementById("myBtn");
+    // Get the close button
+    var btnClose = document.getElementById("closeModal");
+    var btnCloseIcon = document.getElementById("closeIcon");
+   
+    // Open the modal
+    modal.className = "modal";
+    setTimeout(function() {
+      container.className = "MainContainer is-blurred";
+      modal.className = "modal show";
+    }, 100);
+    container.parentElement.className = "ModalOpen";
+  
+    // Close the modal
+    btnClose.onclick = function() {
+        modal.className = "modal";
+        body.className = "";
+        container.className = "MainContainer";
+        container.parentElement.className = "";
+         //reable the button
+        document.getElementById("sendEmail").removeAttribute('disabled');
+    }
+    btnCloseIcon.onclick = function() {
+      modal.className = "modal";
+      body.className = "";
+      container.className = "MainContainer";
+      container.parentElement.className = "";
+       //reable the button
+      document.getElementById("sendEmail").removeAttribute('disabled');
+    }
+  }
+
+  emailjs.init("mMCN7F2rZJqgmMDNL");
+
+  document.getElementById("contact-inquiry").addEventListener("submit", function (event) {
+    event.preventDefault();
+    //disable the button
+    document.getElementById("sendEmail").disabled = true;
+    callModal();
+    sendEmail(this);
+  });
+  let modalText = document.querySelector(".text");
+  function sendEmail(formData) {
+    // Send email using EmailJS
+    emailjs.sendForm('service_ymiob15', 'template_k1lft4g', formData)
+      .then(function (response) {
+        console.log("Email sent successfully:", response);
+        //call modal
+        modalText.innerHTML = "Thank you!<br><p>I have recieved your mesage and I will get back to you!</p>"
+        document.getElementById('contact-inquiry').reset()
+        //window.location.href = 'thankyou.html';
+        // You can add further actions here, such as displaying a success message to the user.
+      })
+      .catch(function (error) {
+        console.error("Email sending error:", error);
+        modalText.innerHTML = "Try Again!<br><p>Something went wrong. Check if you filled all of the required fields</p>"
+        //call failed modal
+
+
+        // window.location.href = 'tryagain.html';
+        console.log('FAILED...', error);
+        // You can handle errors here, such as displaying an error message to the user.
+      });
+  }
+});
+
+
+
+
+
+
+
+
+
+// window.onload = function() {
+//   document.getElementById('contact-inquiry').addEventListener('submit', function(event) {
+//       event.preventDefault();
+//     // get values from form elements
+//       // these IDs from the previous steps
+//       emailjs.sendForm('service_ymiob15', 'template_k1lft4g', this)
+//           .then(function() {
+//               window.location.href = 'thankyou.html';
+//               console.log('SUCCESS!');
+//               document.getElementById('contact-form').reset();
+//           }, function(error) {
+//               window.location.href = 'tryagain.html';
+//                console.log('FAILED...', error);
+//               document.getElementById('contact-form').reset();
+//           });
+//   });
+// }
+

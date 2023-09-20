@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playball&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playball&display=swap"s
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -38,11 +38,19 @@
     <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="style.css" />
 
+    <!-- ==== EmailJS ====-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+    <script type="text/javascript">
+    (function(){
+       // emailjs.init("mMCN7F2rZJqgmMDNL");
+    })();
+  </script>
 
   </head>
+  <div id="MainContainer">
   <div class="bg">
-  <div class="overlay">
+  <div class="overlay bg">
     <header>
       <nav class="navbar">
         <div class="navbar-container">
@@ -79,7 +87,7 @@
               <li><a href="#contact-us">Contact</a></li>
               <div class="tel">
                 <a href="tel:+35799016074"><i class="fas fa-phone"></i>+357 99016074</a>
-              </div>
+            </div>
               </ul>
               
             </div>
@@ -91,14 +99,16 @@
       <img src="images\main_pic.png" id="mike_pic" />
 
         <p id="main-name">MIKE T</p>
-      </div>
-    </div> 
-      </div>
+
+  </div>
+  </div>
+    </header>    
+    <div>
       <section class="social">
       <div class="social-container">
-        <a href="https://www.facebook.com" class="social"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com" class="social"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.twitter.com" class="social"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.facebook.com/Michalis.Tsiattalos" class="social"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com/djmike_tsiattalos?igshid=MWZjMTM2ODFkZg==" class="social"><i class="fa-brands fa-instagram"></i></a>
+        <!-- <a href="https://www.twitter.com" class="social"><i class="fa-brands fa-twitter"></i></a> -->
         <a href="https://www.linkedin.com" class="social"><i class="fa-brands fa-linkedin"></i></a>
       </div>
       </section>
@@ -129,34 +139,28 @@
         <div class="carousel">
           <div class="carousel-inner">
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
+              <img src="images\gallery\weddingcouple.jpg" alt="Image 1">
             </div>
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 2">
+              <img src="images\gallery\setup.jpg" alt="Image 2">
             </div>
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 3">
+              <img src="images\gallery\mikeondecks.png" alt="Image 3">
             </div>
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
+              <img src="images\gallery\weddingsetup.jpg" alt="Image 4">
             </div>
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
+              <img src="images\gallery\consoledaylight.jpg" alt="Image 5">
             </div>
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
+              <img src="images\gallery\console.jpg" alt="Image 6">
             </div>
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
+              <img src="images\gallery\consoleandcake.jpg" alt="Image 7">
             </div>
             <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="images\Black & White Minimalist Aesthetic Initials Font Logo.png" alt="Image 1">
+              <img src="images\gallery\consoledaylight2.jpg" alt="Image 8">
             </div>
             <!-- Add more slides as needed -->
           </div>
@@ -196,12 +200,13 @@
         <div class="contact-info-item padd-15">
           <div class="icon"><i class="fa fa-envelope"></i></div>
           <h4>Email</h4>
-          <p>alexstavrinides@yahoo.com</p>
+          <p>djmiketsiattalos@hotmail.com</p>
         </div>
         <!-- ===== Contact info item end ====== -->
       </div>
       <h3 class="contact-title padd-15">PLAN YOUR NEXT EVENT HERE!</h3>
       <!-- ==== Contact form start ====-->
+    <form id="contact-inquiry">
       <div class="contact-form" id="plan-event">
         <div class="slide-left form event-details">
           <legend>Event Details</legend>
@@ -230,9 +235,9 @@
           <label for="music-genre">Preferred Music Genre(s):</label>
           <input type="text" id="music-genre" name="music-genre"><br><br>
           <label for="song-requests">Do you have any specific song requests?</label>
-          <input id="song-requests" type="radio" id="song-requests-yes" name="song-requests" value="yes">
+          <input id="song-requests" type="radio"  name="song-requests" value="yes">
           <label id="song-requests" for="song-requests-yes">Yes</label>
-          <input id="song-requests" type="radio" id="song-requests-no" name="song-requests" value="no">
+          <input id="song-requests" type="radio" name="song-requests" value="no">
           <label id="song-requests" for="song-requests-no">No</label><br><br>
           <label for="song-details">If yes, please provide details:</label>
           <textarea id="song-details" name="song-details"></textarea><br><br>
@@ -241,20 +246,50 @@
       <div class="slide-left contact-information" id="contact-us">
         <legend>Contact Information</legend>
         <label for="full-name">Full Name:</label>
-        <input type="text" id="full-name" name="full-name"><br><br>
+        <input type="text" id="full-name" name="full-name" autocomplete="name" placeholder="*Required" required><br><br>
         <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email"><br><br>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="*Required" required><br><br>
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone"><br><br>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="*Required" required><br><br>
         <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject"><br><br>
+        <input type="text" id="subject" name="subject" placeholder="*Required" required><br><br>
         <label for="message">Message:</label>
         <textarea id="message" name="message"></textarea><br><br>
-        <button class='glowing-btn'><span class='glowing-txt'>S<span class='faulty-letter'>E</span>ND</span></button>
+        <button id="sendEmail" type="submit" class='glowing-btn'><span class='glowing-txt'>S<span class='faulty-letter'>E</span>ND</span></button>
       </div>
+    </form>
+    
       <!-- ===== Contact Section End ===== -->
     </section>
+
+  </div>
+
   </body>
+  </div>
+
+  <!-- ===== Modal Section Start ===== -->
+    <div id ="myModal" class="modal">
+      <div class="top-content">
+         <span id="closeIcon" class="close-icon"><i class="fas fa-times"></i></span>
+         <div style="padding-top:30px;">
+          <img src="images/logojpg.png" class="img-fluid" alt="Logo" style="height:100px; width:auto;">
+         </div>
+      </div>
+      <div class="bottom-content" style="background:lightslategray;">
+         <div class="text" style="color:whitesmoke">
+            Plase wait...
+            <p style="color:whitesmoke;">
+              <i class="fa-solid fa-compact-disc fa-spin-pulse"></i>
+             </p>
+         </div>
+         
+         <div class="close-btn">
+            <button id="closeModal">Close</button>
+         </div>
+      </div>
+   </div>
+
+    <!-- ===== Modal Section End ===== -->
   <!-- ==== Footer Section Start ==== -->
   <footer class="footer">
     <div class="container">
@@ -266,6 +301,8 @@
     </div>
   </footer>
   <!-- ==== Footer Section End ==== -->
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
   </html>
 
